@@ -2,12 +2,12 @@
     $PAGE
 \*------------------------------------*/
 html{
-	@include mq(750){
-		border-left: 6px solid $red;
+	@include mq(750px){
+		border-left: 6px solid $base-accent-color;
 	}
 	
-	@include mq(750, max) {
-		border-top: 6px solid $red;
+	@include mq(750px, max) {
+		border-top: 6px solid $base-accent-color;
 	}
 }
 
@@ -34,7 +34,7 @@ body{
 	line-height: $base-line-height;
 
 	/* Other */
-	@include mq(750){
+	@include mq(750px){
 		width: 660px;
 		font-size: em(21px);
 	}

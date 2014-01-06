@@ -1,0 +1,4 @@
+/* Default paragraph styles */
+p {
+  	&.lead { @extend %lead; }
+}

@@ -6,7 +6,7 @@ a{
 
 .page--about{
 	h1, h2, h3, .title-group a:hover, .nav--main a:hover, .nav__about{
-		color: $red;
+		color: $base-accent-color;
 	}
 	
 	.nav__about{
@@ -16,12 +16,12 @@ a{
 }
 
 .page--resources h1{
-	color: $red;
+	color: $base-accent-color;
 }
 
 .page--home .nav__home, .page--blog .nav__blog, .page--about .nav__about, .page--resources .nav__resources{
 	cursor: text;
-	color: $red;
+	color: $base-accent-color;
 }
 
 figcaption{
@@ -29,7 +29,7 @@ figcaption{
 }
 
 .love{
-	color: $red;
+	color: $base-accent-color;
 }
 
 

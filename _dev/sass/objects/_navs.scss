@@ -8,7 +8,7 @@ Base Nav Styles
 nav[role="navigation"] a{
 	color: #333333;
 	&:hover{
-		color: $red;
+		color: $base-accent-color;
 	}
 }
 
@@ -68,7 +68,7 @@ nav[role="navigation"] a{
 		
 		
 		&:hover{
-			color: $red;
+			color: $base-accent-color;
 			//background-color: #f9f9f9;
 		}
 		
@@ -108,7 +108,7 @@ nav[role="navigation"] a{
 		text-decoration: none;
 		
 		&:hover{
-			color: $red;
+			color: $base-accent-color;
 		}
 	}
 	
@@ -154,7 +154,7 @@ nav[role="navigation"] a{
 	font-size: 23px;
 	
 	li{
-		color: $red;
+		color: $base-accent-color;
 	}
 }
 

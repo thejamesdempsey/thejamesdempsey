@@ -56,7 +56,7 @@ blockquote {
 }
 
 .red{
-	color: $red;
+	color: $base-accent-color;
 }
 
 %text--accent{
@@ -71,7 +71,7 @@ blockquote {
 	text-decoration: none;
 	
 	&:hover{
-		color: darken($red, 10%);
+		color: darken($base-accent-color, 10%);
 		
 		text-decoration: underline;
 	}

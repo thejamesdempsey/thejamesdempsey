@@ -1,20 +1,20 @@
-@import "ui/functions";
-
 @import "defaults";
 @import "ui/vars";
-@import "ui/mixins";
+
+@import "generic/mixins";
+
+@import "generic/normalize";
+@import "generic/restart";
+@import "generic/shared";
+
+@import "base/headings";
+@import "base/paragraphs";
+@import "base/images";
 
 
 
-@import "ui/normalize";
-@import "ui/restart";
 
 @import "ui/typography";
-
-@import "ui/shared";
-@import "ui/navs";
-
-@import "ui/helpers";
 
 @import "ui/page";
 @import "ui/page-head";
@@ -23,11 +23,20 @@
 @import "ui/posts";
 
 
+
+
+
+@import "objects/navs";
+
+
 @import "ui/animations";
 @import "ui/links";
 
 @import "ui/posts";
 @import "ui/code";
+
+@import "generic/helpers";
+
 
 
 
