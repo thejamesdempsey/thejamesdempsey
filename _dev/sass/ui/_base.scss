@@ -1,0 +1,32 @@
+body{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	font-size: 1.125em;
+	background-color: #f8f8f8;
+	
+	
+	border-top: 6px solid $red;
+	
+	@media all and (min-width: 750px){
+		font-size: 1.25em;
+	}
+}
+
+.content{
+	margin-bottom: 3em;
+	
+	& > section{
+		margin-bottom: 3em;
+	}
+}
+
+.wrap{
+	width: 430px;
+	max-width: 90%;
+	margin: 0 auto;
+	
+	@media all and (min-width: 750px){
+		width: 660px;
+	}
+
+}

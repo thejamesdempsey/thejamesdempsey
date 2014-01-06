@@ -1,0 +1,7 @@
+name: thejamesdempsey
+myurl: http://thejamesdempsey.com
+markdown: redcarpet
+pygments: true
+permalink: /:year/:month/:title
+paginate: 1
+paginate_path: "/page:num"

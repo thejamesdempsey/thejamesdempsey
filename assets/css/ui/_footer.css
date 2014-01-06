@@ -1,0 +1,12 @@
+/* line 1, ../../../_dev/sass/ui/_footer.scss */
+footer {
+  text-align: center; }
+  /* line 4, ../../../_dev/sass/ui/_footer.scss */
+  footer h5 {
+    padding-bottom: 16px; }
+  /* line 8, ../../../_dev/sass/ui/_footer.scss */
+  footer p {
+    padding-bottom: 0.4em; }
+  /* line 12, ../../../_dev/sass/ui/_footer.scss */
+  footer h5, footer p {
+    margin-bottom: 0; }

@@ -1,0 +1,36 @@
+a{
+	text-decoration: none;
+	color: $red;
+}
+
+.page--about{
+	h1, h2, h3, .title-group a:hover, .nav--main a:hover, .nav__about{
+		color: $red;
+	}
+	
+	.nav__about{
+		cursor: text;
+	}
+
+}
+
+.page--resources h1{
+	color: $red;
+}
+
+.page--home .nav__home, .page--blog .nav__blog, .page--about .nav__about, .page--resources .nav__resources{
+	cursor: text;
+	color: $red;
+}
+
+figcaption{
+	font-size: 80%;
+}
+
+.love{
+	color: $red;
+}
+
+
+
+

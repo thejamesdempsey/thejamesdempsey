@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html lang="en" class="page {{ page.page-class }}"> 
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+		
+		<!-- Prefetch DNS for external assets -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="dns-prefetch" href="//www.google-analytics.com">
+		
+		<title>{{ page.title }} -- James Dempsey -- HTML, CSS, JS and More </title>
+		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/screen.css">
+		
+		<meta name="description" content="Articles on CSS, HTML, JavaScript, front-end architecture, and performance.">
+		
+		<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+	</head>
+	<body>
+		<!-- Preload about image before the css needs to render it-->
+		<div class="preload">
+			<img src="{{site.url}}/assets/images/about-image.png"></img>
+		</div>
+		
+		<div class="outer-wrap">
+			<div class="inner-wrap">
+				<!-- header -->
+				<header class="site-header" role="banner">
+					<div class="header-container">
+						<div class="wrapper">
+							<hgroup class="title-group">
+								<a class="js-toggle-nav  toggle-nav  icon-hamburger" href="#flyout"></a>
+								<h1 class="site-title"><a href="/">&lt; jamesdempsey &frasl;&gt;</a></h1>
+							</hgroup>
+						</div>
+					</div>
+				</header>
+				<!-- /header -->
+				<!-- nav -->
+				<nav id="flyout" role="navigation" class="site-nav">
+					<div class="wrapper">
+						<ul class="nav">
+							<li>	
+								<a id="close" class="js-toggle-nav  toggle-nav" href="#">close</a>	
+							</li>	
+							<li>
+								<a href="/archive/" class="nav__blog">articles</a>
+							</li>
+							<li>
+								<a href="/about/" class="nav__about">about</a>
+							</li>
+							<li>
+								<a href="/resources/" class="nav__resources">resources</a>
+							</li>					
+						</ul>
+					</div>
+				</nav>
+				<!-- /nav -->
+				
+				<!-- site-main -->
+				<div class="site-main" role="main">
+					<div class="wrapper ptb12">
+						<div class="g  one-whole  desk-six-tenths">
+							{{ content }}
+						</div>
+						<div class="g  one-whole  desk-three-tenths  push--desk-one-tenth" into>
+							<hr class="hide-large">
+							<figure class="fig-small">
+								<img src="{{site.url}}/assets/images/about-image.png" alt="James Dempsey Photo"></img>
+							</figure>
+							<p>Hi, my name is James. I am a 22 year old <strong>Front-end Architect</strong> and  <strong>web developer</strong> based in Orlando, FL. I work as a <strong>developer</strong> for <strong><a href="http://cru.org">Cru</a></strong>. I <a href="http://twitter.com/thejamesdempsey" target="_blank">tweet</a>, <a href="http://thejamesdempsey.com/archive/" target="_blank">write</a> and <a href="http://github.com/thejamesdempsey" target="_blank">share code</a> about CSS, HTML and JavaScript.</p>
+							<hr>
+				
+							<ul class="list">
+								<h4>Recent Articles</h5>
+							  {% for post in site.posts limit: 5 %}
+							    <li>
+									<a href="{{ post.url }}">{{ post.title }}</a>
+									<h5 class="post__date">{{ post.date | date: "%B %d, %Y" }}</h5>
+								</li>
+							  {% endfor %}
+							</ul>
+							<hr>
+							<h4>Favorite Development Tools</h4>
+							<ol>
+								<li><strong><a href="http://incident57.com/codekit/" target="_blank">CodeKit:</a></strong> All-around Workhorse</li>
+								<li><strong><a href="http://macromates.com" target="_blank">TextMate:</a></strong> Text Editor</li>
+								<li><strong><a href="http://panic.com/transmit/" target="_blank">Transmit:</a></strong> FTP</li>
+								<li><strong><a href="http://en.wikipedia.org/wiki/Terminal_(OS_X)" target="_blank">Terminal:</a></strong> Git, etc</li>
+							</ol>
+						</div>
+					</div>
+					<!-- end .wrapper -->
+				</div>
+				<!-- /site-main -->
+			
+				<!-- footer -->
+				<footer class="site-footer  ptb6">
+					<div class="wrapper">
+						<h5>Handcrafted with <span class="love">&hearts;</span> in Orlando, FL</h5>
+						<p>Copyright &copy; 2012 - 2013 <a href="/">James Dempsey</a>. All Rights Reserved.</p>
+						<p>Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Hosted by <a href="http://mediatemple.net">(mt) Media Temple</a></p>
+					</div>
+				</footer>
+				<!-- /footer -->
+				
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript" async="" src="{{site.url}}/assets/scripts/modernizr.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8"  src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8"  src="{{site.url}}/assets/scripts/main.min.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-38623033-2', 'thejamesdemspey.com');
+		  ga('send', 'pageview');
+
+		</script>
+		
+
+	</body>
+</html>

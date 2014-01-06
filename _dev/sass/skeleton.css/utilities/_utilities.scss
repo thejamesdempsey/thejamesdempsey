@@ -1,0 +1,158 @@
+@include vertical-calc(1, 12) {}
+
+
+%center, .centered{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center-block{
+	@extend %center;
+	
+	width: 100%;
+	text-align: center;
+}
+
+.dismissable {
+	padding-right: 34px;
+}
+
+%plr4{
+	padding-left: $base-spacing-unit;
+	padding-right: $base-spacing-unit;
+}
+
+.ptb4{
+	@extend .pt4;
+	@extend .pb4;
+}
+
+// These will throw a deprecation warning if used within a media query.
+%lead {
+	@include rem-font(2.0);
+	font-weight: 200;
+	line-height: 1.4;
+}
+
+%subheader {
+  line-height: $subheader-line-height;
+  color: $subheader-font-color;
+  font-weight: $subheader-font-weight;
+}
+
+.attached--top{
+	margin-bottom: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.attached--bottom{
+	margin-top: 0;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+}
+
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+
+.example {
+	background-color: #fff;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #ddd;
+	border-radius: 4px;
+	
+	position: relative;
+	padding: 45px 15px 15px;
+	margin: 0 -15px 15px;
+	
+	
+	.table{
+		h1,h2,h3,h4,h5,h6{
+			margin-bottom: 0;
+			line-height: 1.1;
+		}
+		
+		td{
+			padding: 15px 0;
+			border-color: #eee;
+			vertical-align: middle;
+		}
+	}
+	
+	& + h2{
+		margin-top: $base-spacing-unit * 1.5;
+	}
+	
+	&:after {
+	content: "Example";
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #bbb;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	}
+	
+	.message{
+		margin-bottom: $base-spacing-unit;
+	}
+	
+	.message.message--attached{
+		margin-bottom: 0;
+	}
+}
+
+.example .table tr:first-child td{
+	border-top: none;
+}
+
+
+.table .info{
+	color: #999;
+	vertical-align: middle;
+	margin: 0;
+}
+
+.page-header{
+	padding-bottom: 9px;
+	margin: 40px 0 20px;
+	border-bottom: 1px solid #eeeeee;
+	
+	h1{
+		padding-top: 80px;
+		margin-top: -45px;
+	}
+}
+
+
+.docs-section + .docs-section {
+	padding-top: 40px;
+}
+
+
+.js-is-closeable{
+	padding-right: $base-spacing-unit + 10px;
+
+	 .icon--close {
+		 position: relative;
+		 top: -2px;
+		 right: -21px;
+		 color: inherit;
+	}
+}

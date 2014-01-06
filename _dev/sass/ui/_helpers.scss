@@ -1,0 +1,69 @@
+.g, .grid {
+	float: none;
+	display: inline-block;
+	padding-left: 0;
+	vertical-align: top;
+}
+
+
+.head-container{
+	height: auto;
+	max-height: 100%;
+	color: #fff;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wrapper{
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 1em;
+	@extend .cf;
+}
+
+.ptb6{
+	padding-top: 36px;
+	padding-bottom: 36px;
+}
+
+.ptb12{
+	padding-top: 42px;
+	padding-bottom: 0;
+}
+
+.mtb12{
+	margin-top: 72px;
+	margin-bottom: 72px !important;
+}
+
+.center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+hr{
+	border-top: 1px solid rgba(6,8,8,0.12);
+	border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.show-large, nav[role="navigation"] .nav > li.show-large{
+	display: none;
+}
+
+blockquote {
+	padding-left: 12px;
+	border-left: 8px solid rgba(231,76,60,0.2);
+}
+
+.preload {
+	display: none !important;
+}
+
+.fig-small{
+	display: none;
+}
+
+.red{
+	color: $red;
+}
+

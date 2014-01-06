@@ -1,0 +1,49 @@
+@if $use-island == true{
+
+
+.message{	
+	@extend %plr4;
+	@extend .ptb3;
+	min-height: 18px;
+	height: auto;
+	background-color: $base-ui-color;
+		
+	font-size: 16px;
+	color: rgba(0, 0, 0, 0.6);
+	z-index: 20;
+	@include vendor(border-radius, 3px);
+	
+	p:last-child{
+		margin-bottom: 0;
+	}
+}
+
+.message--warning{
+	@include message-variant($message-warning-color, $message-warning-bg);
+}
+
+.message--info{
+	@include message-variant($message-info-color, $message-info-bg);
+}
+
+.message--success{
+	@include message-variant($message-success-color, $message-success-bg);
+
+}
+
+.message--danger{
+	@include message-variant($message-danger-color, $message-danger-bg);
+
+	
+}
+
+.message--attached, .message--attached __top{
+	@extend .attached--top;
+}
+
+.message--attached__bottom{
+	@extend .attached--bottom;
+}
+
+
+}

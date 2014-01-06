@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="en" class="page "> 
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+		
+		<!-- Prefetch DNS for external assets -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="dns-prefetch" href="//www.google-analytics.com">
+		
+		<title>Getting Sassy -- James Dempsey -- HTML, CSS, JS and More </title>
+		
+		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="/assets/css/screen.css">
+		
+		<meta name="description" content="Articles on CSS, HTML, JavaScript, front-end architecture, and performance.">
+		
+		<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+	</head>
+	<body>
+		
+		<div class="preload">
+			<img src="/assets/images/about-image.png"></img>
+		</div>
+		
+		
+		<div class="content">
+			<header class="site-head  wrap" role="banner">
+				<h1 class="site-title"><a href="/">&lt; jd &gt;</a></h1>	
+				<nav role="navigation">
+					<ul class="nav">
+						<li>
+							<a href="/archive/" class="nav__blog">articles</a>
+						</li>
+						<li>
+							<a href="/about/" class="nav__about">about</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+				
+			<section class="site-main  wrap">
+		 		<article class="post-mini">
+	<h5 class="post__date">July 20, 2013</h5>
+	
+	<h2 class="post__title">Getting Sassy</h2>
+
+	<p>I have completely fallen in love with Object Oriented CSS and Sass. It makes my code much more D.R.Y and allows me to manipulate my code by simply changing a few variables. Sass provides options for nesting, setting variables, creating mixins and selector inheritance. My favorites out of all the features Sass provides though has to be the mixins and extensions. These are incredible time savers and makes my code much more reusable. </p>
+
+<p>I am going to share some of the snippets I have been using the most recently. Feel free to <a href="https://github.com/thejamesdempsey/sass-mixins" target="_blank">grab these from my GitHub</a> and edit them to your hearts content. </p>
+
+<h3 class="post__section-title">Clearfix</h3>
+
+<p>Here is a simple way to implement Nicolas Galagher&#39;s clearfix hack. I extend this silent class to avoid the clearfix class being all over my markup.</p>
+
+<div class="highlight"><pre><code class="sass"><span class="err">%</span><span class="nt">clearfix</span><span class="err">{</span>
+    <span class="k">&amp;</span><span class="nd">:before</span><span class="o">,</span> <span class="k">&amp;</span><span class="nd">:after</span><span class="err">{</span>
+        <span class="na">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="err">;</span>
+        <span class="na">display</span><span class="o">:</span> <span class="n">table</span><span class="err">;</span>
+    <span class="err">}</span>
+    <span class="k">&amp;</span><span class="nd">:after</span><span class="err">{</span>
+        <span class="na">clear</span><span class="o">:</span> <span class="no">both</span><span class="err">;</span>
+    <span class="err">}</span> 
+<span class="err">}</span>
+</code></pre></div>
+
+<!-- CLEARFIX MIXIN USAGE -->
+
+<h5>Usage: Scss</h5>
+
+<div class="highlight"><pre><code class="sass"><span class="nc">.wrapper</span><span class="err">{</span>
+    <span class="k">@extend</span> <span class="err">%</span><span class="nt">clearfix</span><span class="o">;</span>
+<span class="err">}</span>
+
+<span class="nc">.row</span><span class="err">{</span>
+    <span class="k">@extend</span> <span class="err">%</span><span class="nt">clearfix</span><span class="o">;</span>
+<span class="err">}</span>
+
+<span class="nc">.site-head</span><span class="err">{</span>
+    <span class="k">@extend</span> <span class="err">%</span><span class="nt">clearfix</span><span class="o">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<!-- CLEARFIX MIXIN OUTPUT IN CSS -->
+
+<h5>Output: CSS</h5>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.wrapper</span><span class="nd">:before</span><span class="o">,</span> <span class="nc">.row</span><span class="nd">:before</span><span class="o">,</span> <span class="nc">.site-head</span><span class="nd">:before</span><span class="o">,</span> <span class="nc">.wrapper</span><span class="nd">:after</span><span class="o">,</span> <span class="nc">.row</span><span class="nd">:after</span><span class="o">,</span> <span class="nc">.site-head</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="k">content</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="n">table</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="nc">.wrapper</span><span class="nd">:after</span><span class="o">,</span> <span class="nc">.row</span><span class="nd">:after</span><span class="o">,</span> <span class="nc">.site-head</span><span class="nd">:after</span> <span class="p">{</span>
+    <span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 class="post__section-title">Box Sizing</h3>
+
+<p>This allows me to reset my elements box modal with ease. Not as useful as some others since I only call it once but it is reusable. D.R.Y at its finest. </p>
+
+<div class="highlight"><pre><code class="sass"><span class="k">@mixin</span><span class="nf"> box-sizing</span><span class="p">(</span><span class="nv">$box-model</span><span class="p">)</span> <span class="err">{</span>
+  <span class="na">-webkit-box-sizing</span><span class="o">:</span> <span class="nv">$box-model</span><span class="err">;</span> 
+     <span class="na">-moz-box-sizing</span><span class="o">:</span> <span class="nv">$box-model</span><span class="err">;</span> 
+          <span class="na">box-sizing</span><span class="o">:</span> <span class="nv">$box-model</span><span class="err">;</span>
+<span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<!-- BOX SIZING OUTPUT IN CSS -->
+
+<h5>Usage: Scss</h5>
+
+<div class="highlight"><pre><code class="sass"><span class="o">*,</span>
+<span class="o">*</span><span class="nd">:after</span><span class="o">,</span>
+<span class="o">*</span><span class="nd">:before</span> <span class="err">{</span>
+    <span class="k">@include</span><span class="nd"> box-sizing</span><span class="p">(</span><span class="no">border</span><span class="o">-</span><span class="n">box</span><span class="p">)</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<!-- BOX SIZING OUTPUT IN CSS -->
+
+<h5>Output: CSS</h5>
+
+<div class="highlight"><pre><code class="css"><span class="o">*,</span>
+<span class="o">*</span><span class="nd">:after</span><span class="o">,</span>
+<span class="o">*</span><span class="nd">:before</span> <span class="p">{</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+    <span class="n">box</span><span class="o">-</span><span class="n">sizing</span><span class="o">:</span> <span class="k">border</span><span class="o">-</span><span class="n">box</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 class="post__section-title">Border Radius</h3>
+
+<p>This give me the ability to set every border radius without having to worry about prefixes. Did I mention I love Sass?</p>
+
+<div class="highlight"><pre><code class="sass"><span class="c1">// Regular border-radius</span>
+
+
+<span class="k">@mixin</span><span class="nf"> border-radius</span><span class="p">(</span><span class="nv">$radius</span><span class="p">)</span> <span class="err">{</span>
+    <span class="na">background-clip</span><span class="o">:</span> <span class="no">padding</span><span class="o">-</span><span class="n">box</span><span class="err">;</span>  
+    <span class="na">-webkit-border-radius</span><span class="o">:</span> <span class="nv">$radius</span><span class="err">;</span>
+            <span class="na">border-radius</span><span class="o">:</span> <span class="nv">$radius</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<!-- BORDER-RADIUS MIXIN USAGE -->
+
+<h5>Usage: Scss</h5>
+
+<div class="highlight"><pre><code class="sass"><span class="nc">.btn</span> <span class="err">{</span>
+    <span class="k">@include</span><span class="nd"> border-radius</span><span class="p">(</span><span class="mi">5</span><span class="kt">px</span><span class="p">)</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h5>Output: CSS</h5>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.btn</span> <span class="p">{</span>
+    <span class="k">background</span><span class="o">-</span><span class="k">clip</span><span class="o">:</span> <span class="k">padding</span><span class="o">-</span><span class="n">box</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+    <span class="k">border</span><span class="o">-</span><span class="n">radius</span><span class="o">:</span> <span class="m">5px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 class="post__section-title">Center Align</h3>
+
+<p>I use this to center align any element within its parent element. This requires a width or max-width to be set in order for it to work. </p>
+
+<div class="highlight"><pre><code class="sass"><span class="k">@mixin</span><span class="nf"> centered</span> <span class="err">{</span>
+    <span class="na">display</span><span class="o">:</span> <span class="no">block</span><span class="err">;</span>
+    <span class="na">margin-left</span><span class="o">:</span> <span class="no">auto</span><span class="err">;</span>
+    <span class="na">margin-right</span><span class="o">:</span> <span class="no">auto</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h5>Usage: Scss</h5>
+
+<div class="highlight"><pre><code class="sass"><span class="nc">.site--foot</span> <span class="err">{</span>
+    <span class="na">width</span><span class="o">:</span> <span class="mi">800</span><span class="kt">px</span><span class="err">;</span>
+    <span class="k">@include</span><span class="nd"> centered</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h5>Output: CSS</h5>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.site--foot</span> <span class="p">{</span>
+    <span class="k">width</span><span class="o">:</span> <span class="m">800px</span><span class="p">;</span>
+    <span class="k">display</span><span class="o">:</span> <span class="k">block</span><span class="p">;</span>
+    <span class="k">margin-left</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span>
+    <span class="k">margin-right</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 class="post__section-title">REM Font Sizing</h3>
+
+<p>This mixin allows you to set your font size relative to the root (html) element. It also provides a px fallback for IE 8 and down.</p>
+
+<div class="highlight"><pre><code class="sass"><span class="k">@mixin</span><span class="nf"> font-size</span><span class="p">(</span><span class="nv">$sizeValue</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.6</span><span class="p">)</span> <span class="err">{</span>
+    <span class="na">font-size</span><span class="o">:</span> <span class="p">(</span><span class="nv">$sizeValue</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="no">px</span><span class="err">;</span> 
+    <span class="na">font-size</span><span class="o">:</span> <span class="nv">$sizeValue</span> <span class="o">+</span> <span class="n">rem</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h5>Usage: Scss</h5>
+
+<div class="highlight"><pre><code class="sass"><span class="nt">html</span> <span class="err">{</span>
+    <span class="na">font-size</span><span class="o">:</span> <span class="mi">62</span><span class="mf">.5</span><span class="kt">%</span><span class="err">;</span> <span class="c1">// Sets up the Base 10 font-size</span>
+<span class="err">}</span>
+
+<span class="nt">h1</span><span class="err">{</span>
+    <span class="k">@include</span><span class="nd"> font-size</span><span class="p">(</span><span class="mi">3</span><span class="mf">.6</span><span class="p">)</span><span class="err">;</span>
+<span class="err">}</span>
+
+<span class="nt">p</span> <span class="err">{</span>
+    <span class="k">@include</span><span class="nd"> font-size</span><span class="p">(</span><span class="mi">1</span><span class="mf">.4</span><span class="p">)</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h5>Output: CSS</h5>
+
+<div class="highlight"><pre><code class="css"><span class="nt">html</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">62</span><span class="o">.</span><span class="m">5</span><span class="o">%</span><span class="p">;</span> <span class="c">/* Sets up the Base 10 font-size */</span>
+<span class="p">}</span>
+
+<span class="nt">h1</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">36px</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">3</span><span class="o">.</span><span class="m">6</span><span class="n">rem</span><span class="p">;</span> 
+<span class="p">}</span>
+
+<span class="nt">p</span> <span class="p">{</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">14px</span><span class="p">;</span>
+    <span class="k">font-size</span><span class="o">:</span> <span class="m">1</span><span class="o">.</span><span class="m">4</span><span class="n">rem</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 class="post__section-title">Vendor Prefix</h3>
+
+<p>This is my personal favorite because I can take any css attribute, add an argument and it adds any vendor prefixes I desire. </p>
+
+<div class="highlight"><pre><code class="sass"><span class="k">@mixin</span><span class="nf"> prefix</span><span class="p">(</span><span class="nv">$name</span><span class="o">,</span> <span class="nv">$argument</span><span class="p">)</span> <span class="err">{</span>
+    <span class="na">-webkit-#{$name}</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$argument</span><span class="si">}</span><span class="err">;</span>
+       <span class="na">-moz-#{$name}</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$argument</span><span class="si">}</span><span class="err">;</span>
+            <span class="na">#{$name}</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$argument</span><span class="si">}</span><span class="err">;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h5>Usage: Scss</h5>
+
+<div class="highlight"><pre><code class="sass"><span class="nc">.shadow</span> <span class="err">{</span>
+    <span class="k">@include</span><span class="nd"> prefix</span><span class="p">(</span><span class="n">box-shadow</span><span class="o">,</span> <span class="no">inset</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">10</span><span class="kt">px</span> <span class="mh">#f9f9f9</span><span class="p">)</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h5>Output: CSS</h5>
+
+<div class="highlight"><pre><code class="css"><span class="nc">.shadow</span> <span class="p">{</span>
+    <span class="o">-</span><span class="n">webkit</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">#f9f9f9</span><span class="p">;</span>
+    <span class="o">-</span><span class="n">moz</span><span class="o">-</span><span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">#f9f9f9</span><span class="p">;</span>
+    <span class="n">box</span><span class="o">-</span><span class="n">shadow</span><span class="o">:</span> <span class="k">inset</span> <span class="m">0</span> <span class="m">0</span> <span class="m">10px</span> <span class="m">#f9f9f9</span><span class="p">;</span> 
+<span class="p">}</span>
+</code></pre></div>
+
+<p>I hope you benefit as much from these as I have. More to come soon.</p>
+
+</article>
+
+			</section>	
+		</div>
+		
+		
+		<footer class="wrap">
+			<h5><small>Handcrafted with <span class="love">&hearts;</span> in Orlando, FL</small></h5>
+			<p>
+				<small>Copyright &copy; 2012 - 2014 <a href="/">James Dempsey</a>. All Rights Reserved.</small>
+				
+				<small>Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Hosted by <a href="http://mediatemple.net">(mt) Media Temple</a></small>
+			</p>
+		</footer>
+		
+		<script type="text/javascript" charset="utf-8"  src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8"  src="/assets/scripts/main.min.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-38623033-2', 'thejamesdemspey.com');
+		  ga('send', 'pageview');
+
+		</script>
+		
+
+	</body>
+</html>

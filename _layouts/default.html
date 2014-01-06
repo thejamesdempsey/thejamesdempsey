@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en" class="page {{ page.page-class }}"> 
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+		
+		<!-- Prefetch DNS for external assets -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="dns-prefetch" href="//www.google-analytics.com">
+		
+		<title>{{ page.title }} -- James Dempsey -- HTML, CSS, JS and More </title>
+		
+		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/screen.css">
+		
+		<meta name="description" content="Articles on CSS, HTML, JavaScript, front-end architecture, and performance.">
+		
+		<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+	</head>
+	<body>
+		
+		<div class="preload">
+			<img src="{{site.url}}/assets/images/about-image.png"></img>
+		</div>
+		
+		
+		<div class="content">
+			<header class="site-head  wrap" role="banner">
+				<h1 class="site-title"><a href="/">&lt; jd &gt;</a></h1>	
+				<nav role="navigation">
+					<ul class="nav">
+						<li>
+							<a href="/archive/" class="nav__blog">articles</a>
+						</li>
+						<li>
+							<a href="/about/" class="nav__about">about</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+				
+			<section class="site-main  wrap">
+		 		{{ content }}
+			</section>	
+		</div>
+		
+		
+		<footer class="wrap">
+			<h5><small>Handcrafted with <span class="love">&hearts;</span> in Orlando, FL</small></h5>
+			<p>
+				<small>Copyright &copy; 2012 - {{ site.time | date: '%Y' }} <a href="/">James Dempsey</a>. All Rights Reserved.</small>
+				
+				<small>Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Hosted by <a href="http://mediatemple.net">(mt) Media Temple</a></small>
+			</p>
+		</footer>
+		
+		<script type="text/javascript" charset="utf-8"  src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8"  src="{{site.url}}/assets/scripts/main.min.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-38623033-2', 'thejamesdemspey.com');
+		  ga('send', 'pageview');
+
+		</script>
+		
+
+	</body>
+</html>

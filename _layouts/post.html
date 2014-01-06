@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<article class="post-mini">
+	<h5 class="post__date">{{ page.date | date: "%B %d, %Y" }}</h5>
+	{% if page.subtitle %}
+		<h4 class="post__subtitle">{{ page.subtitle }}</h4>
+	{% endif %}
+	<h2 class="post__title">{{ page.title }}</h2>
+
+	{{ content }}
+</article>

@@ -1,0 +1,88 @@
+@if $use-panels == true{
+
+/*------------------------------------*\
+    $PANELS
+\*------------------------------------*/
+
+.panel{
+	@include clearfix;
+	
+    border: 1px solid transparent;
+	background-color: $base-offset-color;
+	border-radius: $brand-round;
+	
+    margin-bottom: $base-spacing-unit;
+	
+	p:last-child, 
+	h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h5:last-child,
+	fieldset{
+		margin-bottom: 0;
+	}
+	
+}
+
+.panel-header{
+	@extend %plr4;
+	
+	@include clearfix;
+	@include border-top-radius($brand-round);
+		
+	padding-top: $base-spacing-unit * 0.75;
+	padding-bottom: $base-spacing-unit * 0.75;
+		
+    border-bottom: 1px solid transparent;
+	
+	
+	&.message{
+		@extend .attached--top;
+	}
+}
+
+.panel-body{
+	@extend %plr4;
+	@extend .ptb4;
+	@include clearfix;
+}
+
+
+
+.panel-footer{
+	@extend %plr4;
+	
+	@include clearfix;
+	@include border-bottom-radius($brand-round);
+	
+	
+	padding-top: $base-spacing-unit * 0.75;
+	padding-bottom: $base-spacing-unit * 0.75;
+	
+    border-top: 1px solid transparent;
+	
+	
+}
+
+.panel-header, .panel-body, .panel-footer{
+	& > fieldset{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.panel .panel-body:last-child{
+	padding-bottom: 0;
+}
+
+.panel-footer fieldset:last-of-type{
+	padding-top: 0;
+}
+
+
+.panel--default{
+	@include panel-variant($panel-default-border, transparent);
+}
+
+.panel--info{
+	@include panel-variant($panel-info-border, $panel-info-bg);
+}
+
+}//endif

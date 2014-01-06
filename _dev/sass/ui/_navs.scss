@@ -1,0 +1,215 @@
+
+/*-----------------------------
+
+Base Nav Styles
+
+-----------------------------*/
+
+nav[role="navigation"] a{
+	color: #333333;
+	&:hover{
+		color: $red;
+	}
+}
+
+.site-nav{
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	color: #fff;
+	background: #494b4d;
+	height: 0;
+	overflow: hidden;
+	
+	
+	@media screen and (min-width: 50em){
+		height: auto;
+		width: auto;
+		background: transparent;
+		overflow: auto;
+		right: 0;
+	}
+	
+	.nav{
+		position: relative;
+		color: #ffffff;
+		padding-top: 5em;
+		
+		
+		@media screen and (min-width:45em){
+			margin: 0 -0.75em 0 0;
+			float: right;
+			width: auto;
+			white-space: no-wrap;
+			top: 0;
+			height: 88px;
+			padding-top: 0;
+		}
+	}
+	
+	li{
+		height: 100%;
+		padding-left: 0;
+		padding-right: 0;
+		display: block;
+	}
+	
+	a{
+		display: block;
+		height: 88px;
+		line-height: 88px;
+		margin: 0;
+		color: #3a3a3a;
+		padding: 0 24px;
+		text-decoration: none;
+		color: #ffffff;
+		
+		
+		&:hover{
+			color: $red;
+			//background-color: #f9f9f9;
+		}
+		
+		
+		@media screen and (min-width:45em){
+			color: #3a3a3a;
+		}
+	}
+}
+
+.nav__main{
+	position: relative;
+	height: 0;	
+	
+	.nav{
+		height: auto;
+		display: block;	
+		
+		& > li{
+			@media all and (max-width: 43.874em){
+				display: block;
+			}
+		}
+	}
+	
+	li:hover{
+		background: #f9f9f9;
+	}
+	
+	a{
+		display: block;
+		height: 68px;
+		line-height: 68px;
+		margin: 0;
+		color: #3a3a3a;
+		padding: 0 18px;
+		text-decoration: none;
+		
+		&:hover{
+			color: $red;
+		}
+	}
+	
+	.is-open{
+		height: auto;
+	}
+	
+	@media all and (min-width: 43.875em){
+		vertical-align: middle;
+		float: right;
+		width: auto;
+		a{
+			padding: 0 18px;
+			text-decoration: none;
+		}
+	}
+
+}
+
+
+
+
+.title-group, .nav > li, .nav > li > a, .nav, nav{
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+.nav, .title-group{
+	margin: 0;
+	
+}
+
+.intro dt, .intro dd, .intro ul{
+	display: inline-block;
+	margin: 0;
+}
+.intro ul{
+	list-style: none
+}
+
+.likes{
+	font-size: 23px;
+	
+	li{
+		color: $red;
+	}
+}
+
+
+ul.list{
+	margin-top: 0;
+	margin-bottom: 1.6em;
+	margin-left: 0;
+	list-style: none;
+	
+	& > li{
+		margin: 0.5em 0
+	}
+}
+
+ul.list + h4{
+	margin-bottom: 12px;
+}
+
+.posts-list{
+	list-style: none;
+	
+	h2:hover{
+		text-decoration: underline;
+	}
+}
+
+.drawer {
+  -webkit-transition: all 0.25s linear;
+  -moz-transition: all 0.25s linear;
+  -o-transition: all 0.25s linear;
+  transition: all 0.25s linear;
+}
+
+
+/*-----------------------------
+
+Pagination Nav Styles
+
+-----------------------------*/
+
+.nav.pagination > li{
+	display: inline-block;
+	
+}
+
+.nav.pagination > li > a{
+	display: inline;
+}
+
+.pagination__prev{
+	text-align: left;
+}
+
+.pagination__next{
+	text-align: right;
+}
+

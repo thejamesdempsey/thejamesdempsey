@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html lang="en" class="page page--home"> 
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+		
+		<!-- Prefetch DNS for external assets -->
+		<link rel="dns-prefetch" href="//fonts.googleapis.com">
+		<link rel="dns-prefetch" href="//www.google-analytics.com">
+		
+		<title>Home -- James Dempsey -- HTML, CSS, JS and More </title>
+		
+		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="/assets/css/screen.css">
+		
+		<meta name="description" content="Articles on CSS, HTML, JavaScript, front-end architecture, and performance.">
+		
+		<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+	</head>
+	<body>
+		
+		<div class="preload">
+			<img src="/assets/images/about-image.png"></img>
+		</div>
+		
+		
+		<div class="content">
+			<header class="site-head  wrap" role="banner">
+				<h1 class="site-title"><a href="/">&lt; jd &gt;</a></h1>	
+				<nav role="navigation">
+					<ul class="nav">
+						<li>
+							<a href="/archive/" class="nav__blog">articles</a>
+						</li>
+						<li>
+							<a href="/about/" class="nav__about">about</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+				
+			<section class="site-main  wrap">
+		 		<div class="post">
+	
+		<h1 class="post__title  h3">
+			<span><a href="/2013/10/ordered-list-numbering-with-scss">Ordered List Numbering with Scss</a></span>
+		</h1>		
+		<h5 class="post__date">October 12, 2013</h5>
+			
+		<p><p>Recently, I encountered a very specific challenge in working on the Cru pattern library. Cru&#39;s primary font is Freight Sans Pro, which looks great in most situations. However, when it comes to numerals, this font is lacking. Freight Sans Pro uses old-style figures which means that the numerals vary in height and position, with irregular alignment of characters. </p>
+
+<p>The Cru brand style guide requires lining numerals, which have a constant height and position and sit on the baseline. Typically, I can easily switch out the font to Helvetica Neue with a simple class, but with ordered lists this becomes impossible, or so I thought. </p>
+
+<p>I was able to use this great scss mixin, which writes numbers via a loop and allows me to use the <code>:before</code> pseudo class to display these numbers and change the font on this pseudo class only. Pretty cool stuff. </p>
+
+<h4 class="post__sub-title">Numbering Mixin</h3>
+
+
+
+<div class="highlight"><pre><code class="sass"><span class="k">@mixin</span><span class="nf"> auto-numbers</span><span class="p">(</span><span class="nv">$numbered-element</span><span class="o">,</span> <span class="nv">$sep</span><span class="o">,</span> <span class="nv">$counter</span><span class="o">:</span> <span class="n">item</span><span class="o">,</span> <span class="nv">$nested-parent</span><span class="o">:</span> <span class="n-Pseudo">false</span> <span class="p">)</span><span class="err">{</span>
+    <span class="nv">$sel</span><span class="o">:</span> <span class="p">()</span><span class="err">;</span>
+    <span class="k">@if</span> <span class="nv">$nested-parent</span> <span class="err">{</span>
+        <span class="nv">$sel</span><span class="o">:</span> <span class="nf">append</span><span class="p">(</span><span class="nv">$sel</span><span class="o">,</span> <span class="nf">unquote</span><span class="p">(</span><span class="nv">$nested-parent</span><span class="p">))</span><span class="err">;</span>
+
+        <span class="nn">#</span><span class="err">{$</span><span class="nt">nested-parent</span><span class="err">}{</span>
+            <span class="na">list-style</span><span class="o">:</span> <span class="no">none</span><span class="err">;</span>
+            <span class="na">margin-left</span><span class="o">:</span> <span class="mi">0</span><span class="err">;</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
+    <span class="nv">$sel</span><span class="o">:</span> <span class="nf">append</span><span class="p">(</span><span class="nv">$sel</span><span class="o">,</span> <span class="nf">unquote</span><span class="p">(</span><span class="s1">&#39;</span><span class="s2">&amp;&#39;</span><span class="p">)</span><span class="o">,</span> <span class="n">comma</span><span class="p">)</span><span class="err">;</span>
+
+    <span class="nn">#</span><span class="err">{$</span><span class="nt">sel</span><span class="err">}{</span>
+        <span class="na">counter-reset</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$counter</span><span class="si">}</span><span class="err">;</span>
+        <span class="o">&gt;</span> <span class="nn">#</span><span class="err">{$</span><span class="nt">numbered-element</span><span class="err">}{</span>
+            <span class="k">&amp;</span><span class="nd">:before</span><span class="err">{</span>
+                <span class="na">counter-increment</span><span class="o">:</span> <span class="si">#{</span><span class="nv">$counter</span><span class="si">}</span><span class="err">;</span>
+                <span class="na">content</span><span class="o">:</span> <span class="nf">if</span><span class="p">(</span><span class="nv">$nested-parent</span><span class="o">,</span> <span class="nf">counters</span><span class="p">(</span><span class="si">#{</span><span class="nv">$counter</span><span class="si">}</span><span class="o">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nv">$sep</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nv">$sep</span><span class="si">}</span><span class="s2"> &quot;</span><span class="o">,</span> <span class="nf">counter</span><span class="p">(</span><span class="si">#{</span><span class="nv">$counter</span><span class="si">}</span><span class="p">)</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nv">$sep</span><span class="si">}</span><span class="s2"> &quot;</span><span class="p">)</span> <span class="err">;</span>
+            <span class="err">}</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
+</code></pre></div>
+
+
+
+<h4 class="post__sub-title">Auto-Numbers in the Real World</h4>
+
+<div class="highlight"><pre><code class="sass"><span class="nc">.numbered-list</span><span class="err">{</span>
+    <span class="k">@include</span><span class="nd"> auto-numbers</span><span class="p">(</span><span class="n">li</span><span class="o">,</span> <span class="s1">&#39;</span><span class="s2">.&#39;</span><span class="p">)</span><span class="err">;</span>
+    <span class="na">font-size</span><span class="o">:</span> <span class="no">inherit</span><span class="err">;</span>
+    
+    <span class="na">:before{</span>
+        <span class="na">margin-right</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="nv">!important</span><span class="err">;</span>
+        <span class="na">font-family</span><span class="o">:</span> <span class="nv">$numeral-font-family</span> <span class="nv">!important</span><span class="err">;</span>
+        <span class="na">font-size</span><span class="o">:</span> <span class="mi">95</span><span class="kt">%</span> <span class="nv">!important</span><span class="err">;</span>
+    <span class="err">}</span>
+    
+<span class="err">}</span>
+</code></pre></div>
+
+<p>This is another example of the incredible capabilities of SCSS. Feel free to use this as you wish.</p>
+</p>
+		
+	
+
+<!--	<ol class="nav pagination center">
+	        
+	
+	        
+
+	        
+			<li class="pagination__next one-half">
+	
+	            <a href="/page2" class="btn-small">Next</a>
+			</li>
+		    
+	        
+	</ol> -->
+</div>
+			</section>	
+		</div>
+		
+		
+		<footer class="wrap">
+			<h5><small>Handcrafted with <span class="love">&hearts;</span> in Orlando, FL</small></h5>
+			<p>
+				<small>Copyright &copy; 2012 - 2014 <a href="/">James Dempsey</a>. All Rights Reserved.</small>
+				
+				<small>Powered by <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>. Hosted by <a href="http://mediatemple.net">(mt) Media Temple</a></small>
+			</p>
+		</footer>
+		
+		<script type="text/javascript" charset="utf-8"  src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+		<script type="text/javascript" charset="utf-8"  src="/assets/scripts/main.min.js"></script>
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-38623033-2', 'thejamesdemspey.com');
+		  ga('send', 'pageview');
+
+		</script>
+		
+
+	</body>
+</html>
