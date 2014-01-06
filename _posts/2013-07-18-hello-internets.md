@@ -3,9 +3,8 @@ layout: post
 title: Hello, Internets
 date:   2013-07-17 22:50:06
 categories: web-development
+page-class: page--post
 ---
-
-## {{post.title}}
 
 As many in the industry know, when you start learning a new language or framework, you usually create a very simple application that just outputs the text ‘Hello World’.  Well, this is my first official blog post and my take on the traditional ‘Hello, World’. 
 

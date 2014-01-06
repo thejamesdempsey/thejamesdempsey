@@ -3,6 +3,7 @@ layout: post
 title: Getting Sassy
 date:   2013-07-20 22:50:06
 categories: web-development sass ocss mixins extensions
+page-class: page--post
 ---
 
 ## {{post.title}}

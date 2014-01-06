@@ -1,75 +1,6 @@
 /*------------------------------------*\
     $DEFAULTS
 \*------------------------------------*/
-/**
- * Default variables. Redefine these in your `_vars.scss` file
- */
-
-/* Change the overall browser font: default is 16px */
-$browser-font-size: 10px !default;
-
-$em-base: 16px !default;
-$rem-base: 16px !default;
-
-/* Do not change two things or things very well may break */
-$rem-base: $browser-font-size / 16px;
-$html-font-size: ($rem-base * 100) + 0%  !default;
-
-
-/* Maintains the 16px default but resets rems so that 1rem = 10px */
-$body-font-size: 16px !default; 
-
-// It strips the unit of measure and returns it
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
-}
-
-// Converts "px" to "em" using the ($)em-base
-@function convert-to-em($value, $base-value: $em-base)  {
-  $value: strip-unit($value) / strip-unit($base-value) * 1em;
-  @if ($value == 0em) { $value: 0; } // Turn 0em into 0
-  @return $value;
-}
-
-// Working in ems is annoying. Think in pixels by using this handy function, em-calc(#)
-// Just enter the number, no need to mention "px"
-@function em-calc($values, $base-value: $em-base) {
-  $max: length($values); // Get the total number of parameters passed
-
-  // If there is only 1 parameter, then return it as an integer.
-  // This is done because a list can't be multiplied or divided even if it contains a single value
-  @if $max == 1 { @return convert-to-em(nth($values, 1), $base-value); }
-
-  $emValues: (); // This will eventually store the converted $values in a list
-  @for $i from 1 through $max {
-    $emValues: append($emValues, convert-to-em(nth($values, $i), $base-value));
-  }
-  @return $emValues;
-}
-
-
-
-// $rem-base: 0.625 !default; //Set the value corresponding to body font size. In this case, you should set as: body {font-size: 62.5%;}
-@function rem-calc($pxWidth, $base-value: $browser-font-size) {
-	$pxWidth: strip-unit($pxWidth) / strip-unit($base-value) * 1rem;
-    @if ($pxWidth == 0em) { $pxWidth: 0; } // Turn 0em into 0
-    @return $pxWidth;
-}
-
-
-
-
-/*------------------------------------*\
-    $BORDER-BOX
-\*------------------------------------*/
-/**
- * Do you want all elements to adopt `box-sizing:border-box;` as per
- * paulirish.com/2012/box-sizing-border-box-ftw ?
- */
-$global-border-box:       true!default;
-
-
-
 
 
 /*------------------------------------*\
@@ -78,8 +9,9 @@ $global-border-box:       true!default;
 /**
  * Base stuff
  */
-$base-font-size:          $body-font-size;
-$base-line-height:        24px!default;
+$base-font-size:          18px;
+$base-line-height:        1.6!default;
+
 
 /**
  * Base font-family.
@@ -89,11 +21,13 @@ $base-font-family:        "Open Sans", "Helvetica Neue", "Helvetica", Helvetica,
 /**
  * Default colour for objects’ borders etc.
  */
-$base-bg-color:			  #ffffff !default;
+$base-bg-color:			  #f8f8f8 !default;
 $base-offset-color:		  #ffffff !default;
 $base-ui-color:           #ccc!default;
-$base-accent-color:       #007CB1 !default;
+$base-accent-color:       #e74c3c!default;
 
+
+$base-font-color:         #444444!default;
 $base-link-color:		  $base-accent-color !default;
 
 $base-border-radius:      4px;
@@ -348,15 +282,6 @@ $use-close:    false !default;
  *
  * Assign our `$base-line-height` to a new spacing var for more transparency.
  */
-$base-spacing-unit:         $base-line-height!default;
+$base-spacing-unit:         24px!default;
 $half-spacing-unit:         $base-spacing-unit / 2!default;
 $line-height-ratio:         $base-line-height / $base-font-size;
-
-
-
-$h1-font-calc: strip-unit($h1-font-size) / strip-unit($browser-font-size) !default; // 44px: 4.4rem
-$h2-font-calc: strip-unit($h2-font-size) / strip-unit($browser-font-size) !default; // 36px: 3.6rem
-$h3-font-calc: strip-unit($h3-font-size) / strip-unit($browser-font-size) !default; // 26px: 2.6rem
-$h4-font-calc: strip-unit($h4-font-size) / strip-unit($browser-font-size) !default; // 22px: 2.2rem
-$h5-font-calc: strip-unit($h5-font-size) / strip-unit($browser-font-size) !default; // 20px: 1.0rem
-$h6-font-calc: strip-unit($font-size-default) / strip-unit($browser-font-size) !default;

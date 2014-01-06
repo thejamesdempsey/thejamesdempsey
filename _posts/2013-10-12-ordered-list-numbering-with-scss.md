@@ -3,10 +3,9 @@ layout: post
 title: Ordered List Numbering with Scss
 date:   2013-10-12 22:50:06
 categories: web-development sass scss ocss mixins ordered-lists
+
+page-class: page--post
 ---
-
-## {{post.title}}
-
 
 Recently, I encountered a very specific challenge in working on the Cru pattern library. Cru's primary font is Freight Sans Pro, which looks great in most situations. However, when it comes to numerals, this font is lacking. Freight Sans Pro uses old-style figures which means that the numerals vary in height and position, with irregular alignment of characters. 
 

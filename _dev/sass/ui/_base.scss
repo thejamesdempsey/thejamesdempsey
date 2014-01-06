@@ -1,23 +1,44 @@
+html{
+	@include mq(750){
+		border-left: 6px solid $red;
+	}
+	
+	@include mq(750, max) {
+		border-top: 6px solid $red;
+	}
+}
+
 body{
+	/* Positioning */
+	
+	/* Display and Box Modal */
+	box-sizing: border-box;	
+	width: 430px;
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
 	padding-top: 2em;
 	padding-bottom: 2em;
-	font-size: 1.125em;
-	background-color: #f8f8f8;
 	
+	/* Color */
+	color: $base-font-color;
+	background-color: $base-bg-color;
 	
-	border-top: 6px solid $red;
-	
-	@media all and (min-width: 750px){
-		font-size: 1.25em;
+	/* Text */
+	font-family: 'Lato', 'Arial', sans-serif;
+	font-weight: 400;
+	font-size: em($base-font-size);	
+	line-height: $base-line-height;
+
+	/* Other */
+	@include mq(750){
+		width: 660px;
+		font-size: em(21px);
 	}
 }
 
 .content{
 	margin-bottom: 3em;
-	
-	& > section{
-		margin-bottom: 3em;
-	}
 }
 
 .wrap{
@@ -25,7 +46,7 @@ body{
 	max-width: 90%;
 	margin: 0 auto;
 	
-	@media all and (min-width: 750px){
+	@include mq(750){
 		width: 660px;
 	}
 

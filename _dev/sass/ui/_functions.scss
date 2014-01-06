@@ -1,0 +1,9 @@
+@function strip-unit($num) {
+	@return $num / ($num * 0 + 1);
+}
+
+$browser-context: 16 !default; // Default
+
+@function em($pixels, $context: $browser-context) {
+  @return #{strip-unit($pixels)/$context}em
+}

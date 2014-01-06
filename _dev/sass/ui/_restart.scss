@@ -12,6 +12,17 @@ hr{
 }
 
 /**
+ * My preferred styles for the html element from the start
+ */ 
+html{
+	overflow-y: scroll;
+	min-height: 100%;
+	
+	@include vendor(text-size-adjust, none);
+}
+
+
+/**
  * Give a help cursor to elements that give extra info on `:hover`.
  */
 abbr[title],dfn[title]{

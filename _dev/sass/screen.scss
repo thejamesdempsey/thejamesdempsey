@@ -1,7 +1,9 @@
+@import "ui/functions";
+
 @import "defaults";
 @import "ui/vars";
+@import "ui/mixins";
 
-//@import "skeleton.css/skeleton";
 @import "ui/normalize";
 @import "ui/restart";
 @import "ui/base";
@@ -15,6 +17,7 @@
 @import "ui/transitions";
 //@import "ui/links";
 @import "ui/posts";
+@import "ui/code";
 //@import "ui/buttons";
 @import "ui/footer";
 @import "ui/type";

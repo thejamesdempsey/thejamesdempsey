@@ -4,16 +4,17 @@ title: Home
 page-class: page--home
 ---
 <div class="post">
+
 	{% for post in paginator.posts %}
-		<h1 class="post__title  h3">
+		<h1 class="post__title  line-break  h2">
 			<span><a href="{{ post.url }}">{{ post.title }}</a></span>
 		</h1>		
 		<h5 class="post__date">{{ post.date | date: "%B %d, %Y" }}</h5>
-			
-		<p>{{ post.content }}</p>
+	
+		{{ post.content }}
 		
 	{% endfor %}
-
+</div>
 <!--	<ol class="nav pagination center">
 	        {% if paginator.previous_page %}
 		    <li class="pagination__prev one-half">

@@ -11,24 +11,3 @@ a{
 	     -o-transition: all .2s ease;
 		    transition: all .2s ease;
 }
-
-
-.likes{
-	position: relative;
-	
-	li{
-	    position: absolute;
-	    opacity: 0;
-	    overflow: hidden;
-	    width: 100%;
-	    color: #6b969d;
-	}
-}
-
-@keyframes rotateWordsFirst {
-    0% { opacity: 1; animation-timing-function: ease-in; height: 0px; }
-    8% { opacity: 1; height: 60px; }
-    19% { opacity: 1; height: 60px; }
-    25% { opacity: 0; height: 60px; }
-    100% { opacity: 0; }
-}

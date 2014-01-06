@@ -3,11 +3,12 @@ layout: default
 title: Blog Archive
 page-class: page--blog
 ---
+
 	<section class="posts">
 	    <ul class="posts-list">
 			{% for post in site.posts %}
 			<li>
-				<h2 class="post__title  h3"><span><a href="{{ post.url }}">{{ post.title }}</a></span></h2>	
+				<h2 class="post__title   line-break  h3"><span><a href="{{ post.url }}">{{ post.title }}</a></span></h2>	
 				<h5 class="post__date">{{ post.date | date: "%B %d, %Y" }}</h5>
 										
 				<p>
