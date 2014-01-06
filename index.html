@@ -6,7 +6,7 @@ page-class: page--home
 <div class="post">
 
 	{% for post in paginator.posts %}
-		<h1 class="post__title  line-break  h2">
+		<h1 class="post__title  line-break  flush--bottom  h2">
 			<span><a href="{{ post.url }}">{{ post.title }}</a></span>
 		</h1>		
 		<h5 class="post__date">{{ post.date | date: "%B %d, %Y" }}</h5>
@@ -14,28 +14,4 @@ page-class: page--home
 		{{ post.content }}
 		
 	{% endfor %}
-</div>
-<!--	<ol class="nav pagination center">
-	        {% if paginator.previous_page %}
-		    <li class="pagination__prev one-half">
-	
-	        {% if paginator.previous_page == 1 %}
-	            <a href="/" class="btn-small">Previous</a>
-	        {% else %}
-	            <a href="/page{{paginator.previous_page}}" class="btn-small">Previous</a>
-	        {% endif %}
-		    </li>
-	        {% else %}
-	
-	        {% endif %}
-
-	        {% if paginator.next_page %}
-			<li class="pagination__next one-half">
-	
-	            <a href="/page{{paginator.next_page}}" class="btn-small">Next</a>
-			</li>
-		    
-	        {% else %}
-	        {% endif %}
-	</ol> -->
 </div>

@@ -1,3 +1,6 @@
+/*------------------------------------*\
+    $PAGE
+\*------------------------------------*/
 html{
 	@include mq(750){
 		border-left: 6px solid $red;
@@ -37,17 +40,6 @@ body{
 	}
 }
 
-.content{
-	margin-bottom: 3em;
-}
-
-.wrap{
-	width: 430px;
-	max-width: 90%;
-	margin: 0 auto;
-	
-	@include mq(750){
-		width: 660px;
-	}
-
+.site-main{
+	margin-bottom: em($base-spacing-unit * 3);
 }

@@ -24,13 +24,13 @@ pre, hr,
 	margin-bottom: em($base-spacing-unit);
 
     .islet &{
-		margin-bottom: em($base-spacing-unit) / 2;
+		margin-bottom: em($base-spacing-unit / 2);
 
 	}
 }
 
 h1,h2,h3,h4,h5,h6, p{
-	margin-bottom: em($base-spacing-unit) / 2;
+	margin-bottom: em($base-spacing-unit / 2 );
 }
 
 
@@ -38,7 +38,7 @@ h1,h2,h3,h4,h5,h6, p{
  * Doubled up `margin-bottom` helper class.
  */
 .landmark{
-	//margin-bottom: (em($base-spacing-unit)) * 2;  
+	margin-bottom: em($base-spacing-unit * 2);  
 }
 
 
@@ -56,5 +56,5 @@ hr{
  * by a consistent amount. Define that amount once, here.
  */
 ul,ol,dd{
-	//margin-left: em($base-spacing-unit) * 2;
+	margin-left: em($base-spacing-unit * 2);
 }

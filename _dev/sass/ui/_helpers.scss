@@ -21,25 +21,17 @@
 	@extend .cf;
 }
 
-.ptb6{
-	padding-top: 36px;
-	padding-bottom: 36px;
-}
+/**
+ * Add/remove margins
+ */
+.flush          { margin:       0; }
+.flush--top     { margin-top:   0; }
+.flush--right   { margin-right: 0; }
+.flush--bottom  { margin-bottom:0; }
+.flush--left    { margin-left:  0; }
+.flush--ends    { margin-top:   0; margin-bottom:0; }
+.flush--sides   { margin-right: 0; margin-left:  0; }
 
-.ptb12{
-	padding-top: 42px;
-	padding-bottom: 0;
-}
-
-.mtb12{
-	margin-top: 72px;
-	margin-bottom: 72px !important;
-}
-
-.center {
-	margin-left: auto;
-	margin-right: auto;
-}
 
 hr{
 	border-top: 1px solid rgba(6,8,8,0.12);
@@ -67,3 +59,20 @@ blockquote {
 	color: $red;
 }
 
+%text--accent{
+	color: $base-accent-color;
+}
+
+%text-primary{
+	color: $base-font-color;
+}
+
+%link-actions{
+	text-decoration: none;
+	
+	&:hover{
+		color: darken($red, 10%);
+		
+		text-decoration: underline;
+	}
+}

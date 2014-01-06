@@ -1,7 +1,8 @@
 a{
-	text-decoration: none;
-	color: $red;
+	@extend %text-accent;
+	@extend %link-actions;
 }
+
 
 .page--about{
 	h1, h2, h3, .title-group a:hover, .nav--main a:hover, .nav__about{

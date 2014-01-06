@@ -1,0 +1,19 @@
+.site-head{
+	text-align: center;
+	
+	margin-bottom: 2em;
+}
+
+
+	.site-title{
+		margin-bottom: 0.15em;
+		
+		a{
+			color: #333333;
+			text-decoration: none;
+		
+			&:hover{
+				color: $red;
+			}
+		}
+	}
