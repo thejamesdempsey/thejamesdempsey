@@ -1,6 +1,11 @@
-
-.post__title, .post__date, .line-break{
+.post__title, .post__date{
 	text-align: center;
+}
+
+.post__date{
+	margin-top: .4em;
+	margin-bottom: 2em;
+	font-size: 75%;
 }
 
 .line-break{
@@ -9,7 +14,7 @@
 	span{
 		position: relative;
 		display: inline-block;
-		background-color: $base-ui-color;
+		background-color: $base-bg-color;
 		padding-left: 10px;
 		padding-right: 10px;
 	}
@@ -33,46 +38,20 @@
 	}
 }
 
-.post__date{
-	margin-top: .4em;
-	margin-bottom: 2em;
-	font-size: 75%;
-}
-
 .post__sub-title{
 	margin-top: 1.5em;
 }
 
 .posts-list{
-	
+	@extend .flush;
+		
 	& > li{
 		margin-bottom: 3.5em;
 	}
 }
 
-
 p + h3{
-	margin-top: 2em;
-}
-
-
-.post, .post-mini{
-	
-	a:hover{
-		color: darken($base-accent-color, 5%);
-	}
-	
-	h1 a:hover{
-		text-decoration: underline;
-	}
-	
-	p a:hover{
-		text-decoration: underline;
-	}
-}
-
-.posts-list{
-	margin: 0;
+	margin-top: 1.2em;
 }
 
 .list h5{
