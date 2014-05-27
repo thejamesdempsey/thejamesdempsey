@@ -1,3 +1,11 @@
+.cf{
+    &:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+}
+
 .g, .grid {
 	float: none;
 	display: inline-block;

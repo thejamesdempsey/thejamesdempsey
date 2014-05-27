@@ -1,0 +1,15 @@
+/* humanstxt.org */
+
+/* CREATOR */	
+
+    Chef:James Dempsey
+    Contact: hello [at] thejamesdempsey.com
+    Twitter: @thejamesdempsey
+    From: Fairfax, VA, USA
+    Current Location: Orlando, FL, USA
+
+/* SITE */
+
+    Language: English
+    Doctype: HTML5
+    Technologies: Textmate, Codekit, Photoshop, CSS3, Google Fonts, Macbook Pro

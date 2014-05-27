@@ -2,13 +2,7 @@
     $PAGE
 \*------------------------------------*/
 html{
-	@include mq(750px){
-		border-left: 6px solid $base-accent-color;
-	}
-	
-	@include mq(750px, max) {
-		border-top: 6px solid $base-accent-color;
-	}
+	border-top: 6px solid $base-accent-color;
 }
 
 body{

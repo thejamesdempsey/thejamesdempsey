@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: http://thejamesdempsey.com/sitemap.xml
+Disallow:

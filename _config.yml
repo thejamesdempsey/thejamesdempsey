@@ -5,3 +5,7 @@ pygments: true
 permalink: /:year/:month/:title
 paginate: 1
 paginate_path: "/page:num"
+
+#url: /
+url: http://thejamesdempsey.com
+
