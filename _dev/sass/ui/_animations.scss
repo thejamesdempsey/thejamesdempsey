@@ -1,7 +1,8 @@
 a{
 	@include vendor(transition, color 0.2s ease);
 }
-
+/**
 .btn, .btn-small, .nav li, .btn-nav, .bar{	
 	@include vendor(transition, all 0.2s ease);
 }
+ */

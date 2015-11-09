@@ -1,11 +1,9 @@
-footer{
+footer {
 	text-align: center;
-	
-	border-top: 1px dotted #dddddd;
-	
+		
 	padding-top: 1.5em;
 	
-	h5, p{
+	h5, p {
 		margin-bottom: 0;
 		
 	}	
@@ -14,9 +12,5 @@ footer{
 		display: block;
 		margin-top: 0.2em;
 		margin-bottom: 0.2em;
-	}
-	
-	.love{
-		@extend .red;
 	}
 }

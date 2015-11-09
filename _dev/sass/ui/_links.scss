@@ -3,7 +3,7 @@ a{
 	@extend %link-actions;
 }
 
-
+/**
 .page--about{
 	h1, h2, h3, .title-group a:hover, .nav--main a:hover, .nav__about{
 		color: $base-accent-color;
@@ -12,7 +12,6 @@ a{
 	.nav__about{
 		cursor: text;
 	}
-
 }
 
 .page--resources h1{
@@ -27,10 +26,7 @@ a{
 figcaption{
 	font-size: 80%;
 }
-
-.love{
-	color: $base-accent-color;
-}
+ */
 
 
 

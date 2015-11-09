@@ -1,11 +1,9 @@
 name: thejamesdempsey
 myurl: http://thejamesdempsey.com
-markdown: redcarpet
-pygments: true
-permalink: /:year/:month/:title
-paginate: 1
-paginate_path: "/page:num"
 
-#url: /
-url: http://thejamesdempsey.com
+url: ""
+#url: http://thejamesdempsey.com
+
+# Build settings
+markdown: kramdown
 

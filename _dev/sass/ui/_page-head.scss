@@ -9,11 +9,10 @@
 		margin-bottom: 0.15em;
 		
 		a{
-			color: #333333;
 			text-decoration: none;
 		
 			&:hover{
-				color: $base-accent-color;
+				color: $base-font-color;
                 text-decoration: none;
 			}
 		}

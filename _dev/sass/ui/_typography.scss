@@ -50,9 +50,37 @@ h6, .h6 {
 	font-size: em($h6-font-size); 
 }
 
-//.subheader { @extend %subheader; }
+.line-break{
+	position: relative;
+    text-align: center;
+	
+	span{
+		position: relative;
+		display: inline-block;
+		background-color: $base-bg-color;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	@media all and (min-width: 500px){
+		&:before{
+			position: absolute;
+			overflow: visible;
+			z-index: -1;
+			left: 0;
+			top: 50%;
+		
+			font-family: $base-font-family;
+			text-transform: lowercase;
+		
+			width: 100%;
+			height: 1px;
+			border-bottom: 1px dotted #dddddd;
+			content: ' ';
+		}
+	}
+}
 
-/* Default paragraph styles */
-p {
-//  	&.lead { @extend %lead; }
+p + h3{
+	margin-top: 1.2em;
 }
