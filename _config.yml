@@ -2,7 +2,7 @@ name: thejamesdempsey
 myurl: http://thejamesdempsey.com
 
 #url: ""
-url: http://thejamesdempsey.com
+url: /
 
 # Build settings
 markdown: kramdown
