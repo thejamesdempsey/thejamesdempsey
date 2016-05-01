@@ -1,0 +1,156 @@
+.page--resume {
+    border: none;
+
+    body{
+        padding-top: 0;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    h1, h2, h3, h4, h5 {
+        color: #444;
+    }
+
+    .site-main{
+        margin-left: 0;
+    }
+}
+
+
+.resumeSection {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+.resumeHeader {
+    background: #444;
+    padding: 36px 0;
+
+    @include mq(840px){
+        padding: 72px 0;
+    }
+
+
+    .name,
+    .subtitle,
+    .phone,
+    .email {
+        color: #fff;
+    }
+
+    .resumeSection {
+        margin-top: 0 !important;
+    }
+}
+
+    .name{
+        font-size: em(50px);
+        font-weight: 300;
+
+        @include mq(840px){
+            float: left;
+        }
+    }
+
+    .resumeHeader-info {
+        margin-bottom: 0;
+        margin-top: em(20px);
+
+        @include mq(840px) {
+            float: right;
+            text-align: right;
+        }
+    }
+
+    .subtitle, .phone, .email {
+        font-weight: 300;
+    }
+
+    .subtitle {
+        font-size: em(20px);
+    }
+
+    .phone, .email {
+        font-size: 15px;
+    }
+
+
+.resumeBlock, .tldr .resumeBlock {
+    border-bottom: 1px solid;
+}
+
+.resumeBlock {
+    margin-top: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid;
+
+    &:first-child {
+        margin-top: 72px;
+    }
+
+    &:last-child{
+        border: none;
+    }
+}
+
+    .resumeBlock-title {
+        font-size: 26px;
+        text-transform: uppercase;
+    }
+
+    .resumeBlock-subtitle {
+        font-size: 18px;
+        text-transform: uppercase;
+    }
+    .resumeBlock-company,
+    .resumeBlock-block {
+        font-size: 16px;
+    }
+
+    .resumeBlock ul {
+        margin-left: 18px;
+    }
+
+    .resumeBlock li {
+        list-style: none;
+        margin-bottom: 12px;
+
+        &:before {
+            display: inline-block;
+
+        }
+    }
+
+    .resumeDetails {
+        border-left: 1px solid #444;
+        margin-left: 6px;
+        padding-left: 6px;
+    }
+
+.tldr .resumeSection-subtitle {
+    text-transform: none;
+}
+
+
+.right {
+    @include mq(840px) {
+        float: right;
+        width: 60%;
+    }
+}
+
+.left {
+    @include mq(840px) {
+        float: right;
+        width: 30%;
+    }
+}
+
+.push-10 {
+    @include mq(840px) {
+        margin-left: 10%;
+    }
+}

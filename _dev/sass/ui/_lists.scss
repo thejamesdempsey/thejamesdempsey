@@ -1,0 +1,25 @@
+.numbered-list {
+    margin:  0;
+    padding: 0;
+    list-style: numbered;
+
+    > li {
+        @extend %#{$inuit-list-block-namespace}list-block__item;
+    }
+}
+
+ {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+
+    > li {
+        @extend %#{$inuit-list-block-namespace}list-block__item;
+    }
+
+}
+
+    .#{$inuit-list-block-namespace}list-block__item,
+    %#{$inuit-list-block-namespace}list-block__item {
+        padding: $inuit-list-block-padding;
+    }
